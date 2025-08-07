@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ချေးငွေ POS စနစ်</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Language Selection -->
+  <div id="languageSelection" class="language-container">
+    <h2>Choose Language / ဘာသာစကားရွေးပါ</h2>
+    <button onclick="setLanguage('my')">မြန်မာ</button>
+    <button onclick="setLanguage('en')">English</button>
+  </div>
+
+  <!-- Login Section -->
+  <div id="loginSection" class="hidden">
+    <h2 id="loginTitle">ဝင်မည်</h2>
+    <input type="text" id="username" placeholder="အသုံးပြုသူအမည်">
+    <input type="password" id="password" placeholder="စကားဝှက်">
+    <button onclick="login()" id="loginButton">ဝင်မည်</button>
+    <p id="registerText">အသုံးပြုသူအသစ်? <a href="#" onclick="showRegister()">မှတ်ပုံတင်ရန်</a></p>
+  </div>
+
+  <!-- Register Section -->
+  <div id="registerSection" class="hidden">
+    <h2 id="registerTitle">မှတ်ပုံတင်ရန်</h2>
+    <input type="text" id="regUsername" placeholder="အသုံးပြုသူအမည်">
+    <input type="password" id="regPassword" placeholder="စကားဝှက်">
+    <button onclick="register()" id="registerButton">မှတ်ပုံတင်မည်</button>
+    <p id="loginText">အသုံးပြုသူရှိပြီးသား? <a href="#" onclick="showLogin()">ဝင်ရန်</a></p>
+  </div>
+
+  <!-- POS / Loan Management Interface -->
+  <div id="posSystem" class="hidden">
+    <header>
+      <h2 id="posTitle">POS စနစ်</h2>
+      <button onclick="logout()" id="logoutButton">ထွက်ရန်</button>
+    </header>
+    <!-- Loan Entry Section -->
+    <section id="loanSection">
+      <h3 id="loanTitle">ချေးငွေ ထည့်ရန်</h3>
+      <input type="text" id="customerName" placeholder="အသုံးပြုသူအမည်">
+      <input type="date" id="loanDate">
+      <input type="number" id="loanAmount" placeholder="ငွေပမာဏ">
+      <input type="text" id="loanItems" placeholder="ပစ္စည်းများ (ဥပမာ: ဆီ, ထမင်း)">
+      <button onclick="addLoan()" id="addLoanButton">ထည့်မည်</button>
+    </section>
+    <!-- Search Section -->
+    <section id="searchSection">
+      <input type="text" id="searchInput" placeholder="အမည်ဖြင့်ရှာရန်" oninput="searchLoan()">
+    </section>
+    <!-- Loan List Display as Table -->
+    <section id="loanListSection">
+      <h3 id="loanListTitle">ချေးငွေစာရင်း</h3>
+      <div id="loanList"></div>
+    </section>
+  </div>
+</body>
+</html>
